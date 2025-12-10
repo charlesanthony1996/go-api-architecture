@@ -23,6 +23,12 @@ func giveRandom(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	newMux := http.NewServeMux()
+
+	newMux.HandleFunc("/randomFloat", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintln(w, rand.Float64())
+	})
+
 	mux := &CustomServeMux{}
 	http.ListenAndServe(":8000", mux)
 }
