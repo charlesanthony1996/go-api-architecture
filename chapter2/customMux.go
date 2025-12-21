@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"math/rand/v2"
+	"math/rand"
 	"net/http"
 )
 
@@ -29,6 +29,10 @@ func main() {
 		fmt.Fprintln(w, rand.Float64())
 	})
 
-	mux := &CustomServeMux{}
-	http.ListenAndServe(":8000", mux)
+	newMux.HandleFunc("/randomInt", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintln(w, rand.Intn(100))
+	})
+
+	// mux := &CustomServeMux{}
+	http.ListenAndServe(":8000", newMux)
 }
