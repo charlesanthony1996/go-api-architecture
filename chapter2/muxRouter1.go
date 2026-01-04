@@ -22,7 +22,10 @@ func ArticleHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := mux.NewRouter()
-	r.HandleFunc("/articles/{category}/{id:[0-9]+}", ArticleHandler)
+	// r.HandleFunc("/articles/{category}/{id:[0-9]+}", ArticleHandler)
+	r.HandleFunc("/articles/{category}/{id:[0-9]+}", ArticleHandler).Name("articleRoute")
+	// url, err := r.Get("articleRoute").URL("category", "books", "id", "123")
+	// fmt.Printf(url.URL)
 	srv := &http.Server{
 		Handler:      r,
 		Addr:         "127.0.0.1:8000",
