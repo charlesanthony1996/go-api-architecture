@@ -16,5 +16,7 @@ func queryHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := mux.NewRouter()
-	r.HandleFunc("/articles", query)
+	r.HandleFunc("/articles", queryHandler)
+	r.Queries("id", "category")
+	srv := &http.Server()
 }
