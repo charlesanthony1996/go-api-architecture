@@ -1,0 +1,8 @@
+things that will be looked at
+
+Building a basic web server in Go
+Understanding the net/http package
+ServeMux, a basic router in Go
+Understanding httprouter, a router package
+Introducing Gorilla Mux, a powerful HTTP router
+Introducing URL shortening service design 
